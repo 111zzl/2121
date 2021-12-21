@@ -247,8 +247,8 @@
 
 .cart-goods-list .col-check .icon-checkbox-selected {
     color: #fff;
-    border-color: #ff6700;
-    background-color: #ff6700;
+    /* border-color: #ff6700;
+    background-color: #ff6700; */
 }
 
 .cart-goods-list .col-check .icon-checkbox-selected:hover {

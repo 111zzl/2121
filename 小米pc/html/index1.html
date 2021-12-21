@@ -73,9 +73,9 @@
             </div>
             <!--        登录导航-->
             <div class="info-bar">
-                <a href="login.html">登录</a>
+                <a href="login.html" class="login">登录</a>
                 <span class="line">|</span>
-                <a href="register.html">注册</a>
+                <a href="register.html" class="reg">注册</a>
 
                 <span class="line">|</span>
                 <a href="#">消息通知</a>
@@ -864,11 +864,30 @@
         let btn=document.querySelectorAll('.carousel-btn>a')
         let arr=Array.from(banner)
         let content=document.querySelector('.carousel')
+        // 显示用户名
+        let user=document.querySelector('.login')
+        let out=document.querySelector('.reg')
+        // console.log(user,out)
+        console.log(localStorage.getItem('user'))
+            // 页面加载进来，获取到local里的用户名
+        let loc=localStorage.getItem('user')
+         if(loc){
+             user.innerHTML=loc
+             out.innerHTML='退出'
+             out.href=''
+             out.onclick=function(){
+                //  return false
+                localStorage.removeItem('user')
+                user.innerHTML='登录'
+             }
+         }
         
-        // console.log(banner,pre,next,btn)
-        // console.log(btn.length)
-        console.log(content)
-
+       
+        // if(out.innerHTML='注'){
+        //     location.href='register.html'
+        // }else{
+        //     location.href=''
+        // }
           //   轮播图自动播放
           let timer=null
           let index=0

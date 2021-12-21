@@ -194,11 +194,16 @@
     transition: all 0.3s;
 }
 
+/* 购物车详情图片 */
 
+.cart-info img{
+width: 50px;
+height: 60px;
+}
 /*鼠标移入，显示购物车详情*/
 
 .cart-bar:hover .cart-info {
-    height: 100px;
+    height: 250px;
 }
 
 
@@ -380,6 +385,7 @@ body,html {
     font-family: anton, sans-serif;
 }
 
+
 #slider-wrap {
     width: 485px;
     height: 600px;
@@ -421,7 +427,38 @@ body,html {
     text-align: center;
     line-height: 538px;
 }
-
+#slider span{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background: rgba(200,200,200,.6);
+    position: absolute;
+    top:0;
+    left: 0;
+    cursor: move;
+    display: none;
+}
+#fdg{
+    width: 500px;
+    height: 500px;
+    /* background: red; */
+    /* border: 1px solid #000; */
+    position: absolute;
+    left:630px;
+    overflow: hidden;
+    display: none;
+}
+#fdg img{
+    width: 800px;
+    height:800px;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#fdg .open{
+    display: block;
+}
 #slider-wrap ul#slider li {
     float: left;
     /* position: relative; */
@@ -655,11 +692,16 @@ h2 {
     margin-right: 10px;
     margin-bottom: 10px;
 }
-
-.getbuy-middle-box2 span:hover {
+.br{
+   color: #ff6700; 
+}
+.bG{
+    color:#ff6700;
+}
+/* .getbuy-middle-box2 span:hover {
     color: #ff6700;
     border: 1px solid #ff6700;
-}
+} */
 
 .getbuy-middle-box3 {
     width: 563px;
@@ -685,10 +727,10 @@ h2 {
     margin-bottom: 10px;
 }
 
-.getbuy-middle-box3 span:hover {
+/* .getbuy-middle-box3 span:hover {
     color: #ff6700;
     border: 1px solid #ff6700;
-}
+} */
 
 .buy-box1 {
     width: 408px;
@@ -709,6 +751,14 @@ h2 {
     width: 129px;
     height: 50px;
     background-color: #cccc;
+    font-size: 16px;
+    border: 0;
+    color: #fff;
+}
+.like-br{
+    width: 129px;
+    height: 50px;
+    background-color: #ff6700;;
     font-size: 16px;
     border: 0;
     color: #fff;

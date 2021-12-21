@@ -29,9 +29,8 @@
                 <p>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</p>
             </div>
             <div class="topbar-info" id="J_userInfo">
-                <a class="link" href="javascript:void(0);" data-agreement="true" data-login="true" data-stat-id="40879d467387e3e0" onclick="_msq.push(['trackEvent', '5df97b551662ffe7-40879d467387e3e0', '//order.mi.com/site/login', 'pcpid', '']);" data-href="//order.mi.com/site/login?redirectUrl=https://static.mi.com/cart/">登录</a>
-                <span class="sep">|</span><a class="link" href="javascript:void(0);" data-agreement="true" data-register="true" data-stat-id="b072cf7c6a856e34" onclick="_msq.push(['trackEvent', '5df97b551662ffe7-b072cf7c6a856e34', 'https://account.xiaomi.com/pass/register', 'pcpid', '']);"
-                    data-href="register.html">注册</a> </div>
+                <a href="login.html">登录</a>
+                <span class="sep">|</span><a>注册</a> </div>
         </div>
     </div>
     <!-- 购物车列表 -->
@@ -47,7 +46,7 @@
                 <div class="cart-goods-list">
                     <!-- 列表头 -->
                     <div class="list-head clearfix">
-                        <div class="col col-check"><i class="iconfont icon-checkbox icon-checkbox-selected" id="J_selectAll">√</i>全选</div>
+                        <div class="col col-check"><input class="iconfont icon-checkbox icon-checkbox-selected" id="J_selectAll">√</input>全选</div>
                         <div class="col col-img">&nbsp;</div>
                         <div class="col col-name">商品名称</div>
                         <div class="col col-price">单价</div>
@@ -109,11 +108,11 @@
             <div class="container">
                 <div class="footer-service">
                     <ul class="list-service clearfix">
-                        <li><a href="#"><em class="iconfont-tool"></em><img src="img/icon01_03.png" alt="">预约维修服务</a></li>
-                        <li><a href="#"><em class="iconfont-circle-7"></em><img src="img/icon01_05.png" alt="">7天无理由退货</a></li>
-                        <li><a href="#"><em class="iconfont-circle-15"></em><img src="img/icon01_07.png" alt="">15天免费换货</a></li>
-                        <li><a href="#"><em class="iconfont-gift"></em><img src="img/icon01_09.png" alt="">满150元包邮</a></li>
-                        <li><a href="#"><em class="iconfont-location"></em><img src="img/icon01_11.png" alt="">520余家售后网点</a></li>
+                        <li><a href="#"><em class="iconfont-tool"></em><img src="../img/icon01_03.png" alt="">预约维修服务</a></li>
+                        <li><a href="#"><em class="iconfont-circle-7"></em><img src="../img/icon01_05.png" alt="">7天无理由退货</a></li>
+                        <li><a href="#"><em class="iconfont-circle-15"></em><img src="../img/icon01_07.png" alt="">15天免费换货</a></li>
+                        <li><a href="#"><em class="iconfont-gift"></em><img src="../img/icon01_09.png" alt="">满150元包邮</a></li>
+                        <li><a href="#"><em class="iconfont-location"></em><img src="../img/icon01_11.png" alt="">520余家售后网点</a></li>
                     </ul>
                 </div>
                 <div class="footer-links clearfix">
@@ -170,7 +169,26 @@
 
     </div>
 
-
+   <script>
+       //页面加载进来获取localstorage里的user判断是否执行下面的代码
+       function user(){
+        let loc=localStorage.getItem('user')
+    //    console.log(loc)
+        //获取元素
+        let login=document.querySelector('.topbar-info').firstElementChild
+        let out=document.querySelector('.topbar-info').lastElementChild
+        // console.log(login,out)
+        if(loc){
+            login.innerHTML=loc
+            out.innerHTML='退出'
+            out.onclick=function(){
+                localStorage.removeItem('user')
+                location.href=''
+            }
+        }
+       }
+       user()
+   </script>
 </body>
 
 

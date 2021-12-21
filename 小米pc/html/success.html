@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search{
+            border-radius: 10px 20px 0 0;
+        }
+        .btnSea{
+            display: inline-block;
+            margin-top: 0px;
+            margin-left: 200px;
+            width:40% !important;
+        }
+        .result{
+            background-color: #ff99cc;
+            width: 400px;
+            height: 50px;
+            margin: 30px 200px;
+            left: 300px;
+        }
+        #list{
+            margin: 10px 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="search">
+        <frameset>
+            <input type="text" class="form-control btnSea" id="search">
+            <input class="btn btn-default" type="button" value="搜索" id="btn">
+        </frameset>
+    </div>
+    <ul id="list">
+
+    </ul>
+    <div id="result" class="result"></div>
+     <script>
+         let xmlHttp=new XMLHttpRequest(); //创建一个ajax对象
+         let txt=null;
+         let ul=document.getElementById('list');
+         let btn=document.getElementById('btn');
+         let result=document.getElementById('result');
+         let array=new Array();
+         xmlHttp.onreadystatechange=function(){
+             if(xmlHttp.readyState==4){
+                if(xmlHttp.status==200){
+                    // 获取响应内容
+                    txt=xmlHttp.responseText;
+                    // 把josn数据转成json对象
+                    let jsonObj=JSON.parse(txt)
+                    console.log(jsonObj)
+                    //动态拼接DOM结构
+                    for(let i=0;i<jsonObj.length;i++){
+                        let li=document.createElement('li');
+                        let txtNode=document.createTextNode(jsonObj[i]['name']+' '+jsonObj[i]['price']);
+                        array.push(jsonObj[i]['name']);
+                        li.appendChild(txtNode);
+                        ul.appendChild(li)
+                    }
+                }else{
+                    console.log('数据返回失败！状态代码：'+xhr.status+'状态信息：'+xhr.statusText);
+                }
+             }
+
+         }
+         xmlHttp.open('GET','http://localhost:3000/frite',true);
+         xmlHttp.send();
+         btn.onclick=function(){
+             let search=document.getElementById('search').value;
+             for(let i=0;i<array.length;i++){
+                 if(array[i].indexOf(search)>=0)
+                 {
+                     result.innerHTML=array[i];
+                     console.info='----'
+                 }
+             }
+         }
+     </script>
+</body>
+</html>

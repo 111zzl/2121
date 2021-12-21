@@ -1,0 +1,41 @@
+{
+  "usermanager": [
+    {
+      "name": "admin@qq.",
+      "psw": "passadmin"
+    },
+    {
+      "name": "163@qq.com",
+      "psw": "root"
+    }
+  ],
+  "frite": [
+    {
+      "name": "黑鲨游戏手机 2",
+      "price": "5599元",
+      "color": "陶瓷黑",
+      "memory": "8G256G",
+      "src": "file:///C:/Users/86157/Desktop/%E5%B0%8F%E7%B1%B3pc/images/1.png",
+      "num": 2,
+      "id": 1
+    },
+    {
+      "name": "黑鲨游戏手机 2",
+      "price": "5599元",
+      "color": "陶瓷黑",
+      "memory": "8G128G",
+      "src": "file:///C:/Users/86157/Desktop/%E5%B0%8F%E7%B1%B3pc/images/1.png",
+      "num": 1,
+      "id": 2
+    },
+    {
+      "name": "黑鲨游戏手机 2",
+      "price": "5599元",
+      "color": "透明版",
+      "memory": "8G256G",
+      "src": "file:///C:/Users/86157/Desktop/%E5%B0%8F%E7%B1%B3pc/images/1.png",
+      "num": 1,
+      "id": 3
+    }
+  ]
+}

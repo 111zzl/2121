@@ -6,7 +6,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小米商城 - Redmi Note 8、小米CC9、小米MIX 3，小米电视官方网站</title>
-    <meta name="description" content="小米商城直营小米公司旗下所有产品，包括小米手机系列小米CC9、小米9、小米MIX 3，Redmi 红米系列Redmi K20 Pro、Redmi Note 8，小米电视、红米电视、笔记本、米家智能家居等，同时提供小米客户服务及售后支持。" />
+    <meta name="description"
+        content="小米商城直营小米公司旗下所有产品，包括小米手机系列小米CC9、小米9、小米MIX 3，Redmi 红米系列Redmi K20 Pro、Redmi Note 8，小米电视、红米电视、笔记本、米家智能家居等，同时提供小米客户服务及售后支持。" />
     <meta name="keywords" content="小米,小米9,小米cc9,Redmi K20,Redmi Note 8,小米MIX3,小米商城" />
     <link rel="shortcut icon" href="//s01.mifile.cn/favicon.ico" type="image/x-icon" />
     <!--    引入重置样式表-->
@@ -15,6 +16,8 @@
     <link rel="stylesheet" href="../css/base.css">
     <!--    引入当前页面的样式表-->
     <link rel="stylesheet" href="../css/getbuy.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <!-- <script src="../js/jquery.min.js"></script> -->
 
     <!-- <script src="../js/holder.min.js"></script>
@@ -109,7 +112,7 @@
                     <div class="code">
                         <!--                    创建一个小三角-->
                         <i class="arrow"></i>
-                        <img  src="../img/code.png" width="84">
+                        <img src="../img/code.png" width="84">
                         <span>小米商城App</span>
                     </div>
                 </a>
@@ -120,19 +123,22 @@
             <!--        购物车-->
             <div class="cart-bar">
                 <a href="Cart.html">
-                    <span class="fas fa-shopping-cart"></span> 购物车（0）
+                    <span class="fas fa-shopping-cart">购物车（0）</span> 
                 </a>
 
                 <!--            购物车的信息-->
                 <div class="cart-info">
                     <span>购物车中还没有商品，赶紧选购吧！</span>
+                    <!-- <li>
+                         <img src="../images/1.png" alt="">黑鲨手机 2
+                     </li> -->
                 </div>
             </div>
             <!--        登录导航-->
             <div class="info-bar">
                 <a href="login.html">登录</a>
                 <span class="line">|</span>
-                <a href="register.html">注册</a>
+                <a href="register.html" class="reg">注册</a>
 
                 <span class="line">|</span>
                 <a href="#">消息通知</a>
@@ -153,7 +159,7 @@
             <div class="header-nav">
                 <ul>
                     <li><a href="getbuy.html">商品详情</a></li>
-                    <li><a href="#">小米手机     </a>
+                    <li><a href="#">小米手机 </a>
                         <div class="mi-iphone ">
                             <div class="mi-iphone-box">
                                 <ul>
@@ -164,30 +170,35 @@
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米10</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
 
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米10</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米10</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米10</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米10</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
 
                                 </ul>
                             </div>
                         </div>
                     </li>
-                    <li><a href="#">Redmi红米   </a>
+                    <li><a href="#">Redmi红米 </a>
                         <div class="mi-iphone ">
                             <div class="mi-iphone-box">
                                 <ul>
@@ -198,29 +209,34 @@
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米9</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
 
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米9</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米9</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米9</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米9</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </li>
-                    <li><a href="#">电视笔记本   </a>
+                    <li><a href="#">电视笔记本 </a>
                         <div class="mi-iphone ">
                             <div class="mi-iphone-box">
                                 <ul>
@@ -231,29 +247,34 @@
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米8</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
 
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米8</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米8</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米8</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米8</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </li>
-                    <li><a href="#">家电   </a>
+                    <li><a href="#">家电 </a>
                         <div class="mi-iphone ">
                             <div class="mi-iphone-box">
                                 <ul>
@@ -264,29 +285,34 @@
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米7</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
 
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米7</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米7</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米7</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米7</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </li>
-                    <li><a href="#">路由器  </a>
+                    <li><a href="#">路由器 </a>
                         <div class="mi-iphone ">
                             <div class="mi-iphone-box">
                                 <ul>
@@ -297,30 +323,35 @@
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米5</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
 
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米5</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米5</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米5</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                     <li class="spacers"></li>
                                     <li><img src="../images/iPhone_03.png" alt="">
                                         <p>小米5</p>
-                                        <em>4999元</em></li>
+                                        <em>4999元</em>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </li>
-                    <li><a href="#">服务            </a></li>
-                    <li><a href="#">社区          </a></li>
+                    <li><a href="#">服务 </a></li>
+                    <li><a href="#">社区 </a></li>
                 </ul>
                 <!-- 从搜索框开始 -->
                 <div class="header-search">
@@ -365,8 +396,17 @@
     <!-- 轮播图 -->
     <div class="box-big">
         <div class="w">
+            <!-- 放大镜效果 -->
+            <div id='fdg'>
+                <img src="../images/1.png" alt="" class="open">
+                <img src="../images/2.png" alt="">
+                <img src="../images/3.png" alt="">
+                <img src="../images/4.png" alt="">
+                <img src="../images/5.png" alt="">
+            </div>
             <div id="slider-wrap">
                 <ul id="slider">
+
                     <li data-color="#ffff">
                         <i class="fa-image show"><img src="../images/1.png" alt=""></i>
                     </li>
@@ -382,6 +422,7 @@
                     <li data-color="ffff">
                         <i class="fa-microphone-slash"><img src="../images/5.png" alt=""></i>
                     </li>
+                    <span></span>
                 </ul>
 
                 <div class="btns" id="next"><i class="fa fa-arrow-right" style="font-size:45px">&gt;</i></div>
@@ -402,10 +443,12 @@
             <div class="getbuy-middle-right">
                 <div class="getbuy-middle-box1">
                     <h3>黑鲨游戏手机 2</h3>
-                    <p><i style="color: #ff6700;">「购机赠小米定制T恤:最高享24期免息,低至221元起/期</i>加149元得199元55W立式风冷无线 充120X 超远变焦1 120W秒充科技1120Hz刷新率+ 240Hz采样率1骁龙865旗舰处理器1双模 5G1 10倍混合光学变焦1 OIS光学防抖+EIS数字防抖12000万超清前置相机1双串蝶式石墨烯基 锂离子电池1等效4500mAh大电量1 120W有线秒充+50W无线秒充+ 10W无线反充1
+                    <p><i style="color: #ff6700;">「购机赠小米定制T恤:最高享24期免息,低至221元起/期</i>加149元得199元55W立式风冷无线 充120X 超远变焦1
+                        120W秒充科技1120Hz刷新率+ 240Hz采样率1骁龙865旗舰处理器1双模 5G1 10倍混合光学变焦1 OIS光学防抖+EIS数字防抖12000万超清前置相机1双串蝶式石墨烯基
+                        锂离子电池1等效4500mAh大电量1 120W有线秒充+50W无线秒充+ 10W无线反充1
                         WiFi 61功 能NFC 1红外遥控</p>
                     <em>小米自营</em><br>
-                    <em>5599元</em>
+                    <em id="price">5599元</em>
 
                 </div>
                 <div class="getbuy-middle-box2">
@@ -494,7 +537,7 @@
                     <h2>400-100-5678</h2>
                     <p>8:00-18:00 (仅收市话费)</p>
                     <a href="#">人工客服</a>
-                    <em>关注小米<img  src="../img/img_03.png" alt=""><img  src="../img/img_04.png" alt=""></em>
+                    <em>关注小米<img src="../img/img_03.png" alt=""><img src="../img/img_04.png" alt=""></em>
                 </div>
 
             </div>
@@ -503,65 +546,320 @@
     <!-- <script src="../js/getbuy.js"></script> -->
     <script>
         // 获取元素
-        let phone=document.querySelectorAll('#slider>li')
-        let next=document.querySelector('#next')
-        let pre=document.querySelector('#previous')
-        let btn=document.querySelectorAll('#pagination-wrap>ul>li')
-        console.log(phone,next,pre,btn)
-        let arr=Array.from(phone)
-        for(let i=0;i<btn.length;i++){
-            // 设置自定义属性
-            btn[i].setAttribute('index',i)
-            btn[i].onclick=function(){
-                // console.log(111)
-                // 获取自定义属性
-                let index=this.getAttribute('index')
-                // console.log(index)
-                for(let j=0;j<btn.length;j++){
-                    btn[j].className=''
-                    // phone[j].className=''
-                    phone[j].className='item'
-                }
-                this.className='active'
-                phone[index].className='show'
+        let user = document.querySelector('.info-bar').firstElementChild
+        let out = document.querySelector('.reg')
+        // console.log(user,out)
+        //当页面加载进来，获取到local里面的user用户名
+        let loc = localStorage.getItem('user')
+        let carts = localStorage.getItem('carts')
+
+        if (loc) {
+            user.innerHTML = loc
+            out.innerHTML = '退出'
+            out.href = ''
+            out.onclick = function () {
+                localStorage.removeItem('user')
+                user.innerHTML = '登录'
             }
         }
-    //   点击左右按钮进行切换
-    let num=0
-    next.onclick=function(){
-           num++
-           arr.forEach((item,index)=>{
-               console.log(item,index)
-               if(num==index){
-                   for(let i=0;i<arr.length;i++){
-                       phone[i].className='item'
-                       btn[i].className=''
-                   }
-                   phone[index].className='show'
-                   btn[index].className='active'
-               }else if(num>arr.length-1){
-                   num=index-1
-               }
-           })
-    }
-    pre.onclick=function(){
-           num--
-           arr.forEach((item,index)=>{
-               console.log(item,index)
-               if(num==index){
-                   for(let i=0;i<arr.length;i++){
-                       phone[i].className='item'
-                       btn[i].className=''
-                   }
-                   phone[index].className='show'
-                   btn[index].className='active'
-               }else if(num<index&&num<1){
-                   num=arr.length
-               }
-           })
-    }
-    // 放大镜
-    
+        let phone = document.querySelectorAll('#slider>li')
+        let next = document.querySelector('#next')
+        let pre = document.querySelector('#previous')
+        let btn = document.querySelectorAll('#pagination-wrap>ul>li')
+        let left = document.querySelector('#slider')
+        let right = document.querySelector('#fdg')
+        let mask = document.querySelector('#slider>span')
+        let pic = document.querySelectorAll('#slider>li>i>img')
+        let bigPic = right.children
+        let arrs = Array.from(bigPic)
+        let arr = Array.from(phone)
+        let timer = null
+        //获取右边的分类按钮
+        let rightBtn = document.querySelectorAll('.getbuy-middle-box2>span')
+        let rightBtn2 = document.querySelectorAll('.getbuy-middle-box3>span')
+        //获取我喜欢按钮加样式
+        let btnLike = document.querySelector('.buy-like')
+        // console.log(btnLike)
+        //点击我喜欢按钮变色，再点一次就变回去
+        btnLike.onclick = function () {
+            if (this.style.backgroundColor == '') {
+                this.style.backgroundColor = 'red'
+            } else if (this.style.backgroundColor == 'red') {
+                this.style.backgroundColor = ''
+            }
+        }
+        //点击按钮选中变色
+        for (let i = 0; i < rightBtn.length; i++) {
+            rightBtn[i].setAttribute('index', i)
+            rightBtn[i].onclick = function () {
+                // console.log(11)
+                let index = this.getAttribute('index')
+                clearInterval(timer)
+                for (let j = 0; j < rightBtn.length; j++) {
+                    rightBtn[j].className = ''
+                    arr[j].className = 'item'
+                }
+                this.className = 'br'
+                arr[index].className = 'show'
+                // if(this.className=='br'){
+                //    color=this.innerHTML
+                // }
+
+            }
+
+
+            rightBtn2[i].onclick = function () {
+                for (let k = 0; k < rightBtn2.length; k++) {
+                    rightBtn2[k].className = ''
+                }
+                this.className = 'bG'
+                // if(this.className=='br'){
+                //     memory=this.innerHTML
+                // }
+            }
+        }
+
+
+        //  点击购物车获取值加到json数据库
+        let cart = document.querySelector('.buy-button')
+        //    获取右上角购物车数量数据
+
+        // cartNum.innerText=`购物车(${carts})`
+        cart.onclick = function () {
+            if (user.innerHTML != loc) {
+                alert('请登录后再添加购物车！')
+                return
+            }
+            //手机名字
+            let name = document.querySelector('.getbuy-middle-box1>h3').innerHTML
+            //手机价格
+            let price = document.querySelector('#price').innerHTML
+            //手机颜色
+            let colors = document.querySelector('.br').innerHTML
+            //手机内存大小
+            let memorys = document.querySelector('.bG').innerHTML.replace(/[+]/g, '')
+            //图片路径
+            if (!colors || !memorys) {
+                alert('请选择颜色和内存')
+                return
+            }
+            let src = 'file:///C:/Users/86157/Desktop/%E5%B0%8F%E7%B1%B3pc/images/1.png'
+            console.log(name, price, colors, memorys)
+            axios.get(` http://localhost:3000/frite?name=${name}&price=${price}&color=${colors}&memory=${memorys}`)
+                .then(({
+                    data
+                }) => {
+                    console.log(data)
+                    // console.log(data[0].num,data[0].id)
+                    // console.log(data[0].id)
+                    //如果data为空说明json没有这条数据，发送post请求添加数据
+                    if (data.length == 0) {
+
+                        // console.log('登对')
+                        axios.post('http://localhost:3000/frite', {
+                            name: name,
+                            price: price,
+                            color: colors,
+                            memory: memorys,
+                            src: src,
+                            num: 1
+                        })
+                    } else if (data) { //如果data里面有数据，说明已经存在，发送put请求修改num数量+1
+                        let num = data[0].num
+                        axios.put(`http://localhost:3000/frite/${data[0].id}`, {
+                            name: name,
+                            price: price,
+                            color: colors,
+                            memory: memorys,
+                            src: src,
+                            num: num + 1
+                        })
+                    }
+                    alert('加入成功！')
+                    location.reload()
+                })
+                   
+        }
+            //显示右下角购物车详情
+        function cartContent() {
+            if (loc == null) {
+                return
+            }
+            let cartNum = document.querySelector('.fa-shopping-cart')
+            console.log(cartNum)
+            axios.get('http://localhost:3000/frite').then(({
+                data
+            }) => {
+                //    console.log(data)
+                if (data.length != 0) {
+                    let cartInfo = document.querySelector('.cart-info')
+                    let html = ''
+                    Array.from(data).forEach(ele => {
+                        html += ` <li><img src="${ele.src}" alt="">${ele.name}数量 ${ele.num}       <span onclick="fn(this,${data[0].id})">删除</span>
+                     </li> `
+                    })
+                    cartInfo.innerHTML=html
+                    cartNum.innerHTML='购物车('+data.length+')'
+                }
+
+            })
+        }
+        cartContent()
+
+        //右上角显示购物车数量
+            //  function cartNum(){
+            //     
+            //     //  发送ajax获取json数据库里的数量num
+            //      axios.get('http://localhost:3000/frite').then(({data})=>{
+                      
+            //         //  console.log(data[0].num)
+            //         if(data.length!=0){
+            //             cartNum.inner='('+data.length+')'
+                        
+                      
+            //             // Array.from(data).forEach(ele=>{
+            //             //     // console.log(ele.num)
+            //             //     let jsonNum=ele.num
+            //             //     console.log(jsonNum)
+            //             // })
+            //         }
+                     
+            //      })
+            //  }
+            //  cartNum()
+        //购物车详情里的删除键效果
+        function fn(t,id){
+            
+            axios.delete(`http://localhost:3000/frite/${id}`).then(({data})=>{
+                console.log(data)
+                
+            })
+            t.parentNode.remove()
+        }
+        //  轮播自动播放
+
+        let index = 0
+
+        function Auto() {
+            clearInterval(timer)
+            timer = setInterval(function () {
+                // console.log(i++)
+                // console.log(index++)
+                if (index < arr.length) {
+                    arr.forEach(ele => {
+                        ele.className = 'item'
+                    })
+                    Array.from(btn).forEach(ite => {
+                        ite.className = ''
+                    })
+                    arr[index].className = 'show'
+                    btn[index].className = 'active'
+                    index++
+                } else {
+                    index = 0
+                }
+            }, 1000)
+        }
+        Auto()
+
+        // 放大镜效果 绑定事件
+        // 当鼠标移入left的时候mask和right出现，清除计时器
+        left.onmouseover = function () {
+            // console.log(111)
+            mask.style.display = 'block'
+            right.style.display = 'block'
+            clearInterval(timer)
+        }
+        // 当鼠标移出left的时候mask和right消失
+        left.onmouseout = function () {
+            mask.style.display = 'none'
+            right.style.display = 'none'
+            Auto()
+        }
+        // 当鼠标进入left移动的时候鼠标直接跟随
+        left.onmousemove = function (e) {
+            // console.log(111)
+            e = e || window.event
+            let x = e.pageX - left.offsetParent.offsetLeft - mask.offsetWidth / 2
+            let y = e.pageY - left.offsetParent.offsetTop - mask.offsetHeight / 2
+            // console.log(x,y)
+            if (x < 0) {
+                x = 0
+            } else if (x >= left.offsetWidth - mask.offsetWidth) {
+                x = left.offsetWidth - mask.offsetWidth
+            }
+            if (y < 0) {
+                y = 0
+            } else if (y >= left.offsetHeight - mask.offsetHeight) {
+                y = left.offsetHeight - mask.offsetHeight
+            } else if (y > 400) {
+                y = 400
+            }
+            // console.log(x,y)
+            mask.style.left = x + 'px'
+            mask.style.top = y + 'px'
+            let w = x / (left.offsetWidth - mask.offsetWidth)
+            let h = y / (left.offsetHeight - mask.offsetHeight)
+            arrs.forEach((item, index) => {
+                //  console.log(item,index)
+                bigPic[index].style.left = -w * (bigPic[index].offsetWidth - right.offsetWidth) + 'px'
+                bigPic[index].style.top = -h * (bigPic[index].offsetHeight - right.offsetHeight) + 'px'
+            })
+        }
+        //点击下方小图片进行切换
+        for (let i = 0; i < btn.length; i++) {
+            // 设置自定义属性
+            btn[i].setAttribute('index', i)
+            btn[i].onclick = function () {
+                // console.log(111)
+                // 获取自定义属性
+                let index = this.getAttribute('index')
+                // console.log(index)
+                for (let j = 0; j < btn.length; j++) {
+                    btn[j].className = ''
+                    // phone[j].className=''
+                    phone[j].className = 'item'
+                    bigPic[j].className = ''
+                }
+                this.className = 'active'
+                phone[index].className = 'show'
+                bigPic[index].className = 'open'
+            }
+        }
+        //   点击左右按钮进行切换
+        let num = 0
+        next.onclick = function () {
+            num++
+            arr.forEach((item, index) => {
+                //    console.log(item,index)
+                if (num == index) {
+                    for (let i = 0; i < arr.length; i++) {
+                        phone[i].className = 'item'
+                        btn[i].className = ''
+                    }
+                    phone[index].className = 'show'
+                    btn[index].className = 'active'
+                } else if (num > arr.length - 1) {
+                    num = index - 1
+                }
+            })
+        }
+        pre.onclick = function () {
+            num--
+            arr.forEach((item, index) => {
+                //    console.log(item,index)
+                if (num == index) {
+                    for (let i = 0; i < arr.length; i++) {
+                        phone[i].className = 'item'
+                        btn[i].className = ''
+                    }
+                    phone[index].className = 'show'
+                    btn[index].className = 'active'
+                } else if (num < index && num < 1) {
+                    num = arr.length
+                }
+            })
+        }
     </script>
 </body>
 
