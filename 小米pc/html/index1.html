@@ -16,6 +16,7 @@
     <!--    引入当前页面的样式表-->
     <link rel="stylesheet" href="../css/index.css">
     <link rel="shortcut icon" href="//s01.mifile.cn/favicon.ico" type="image/x-icon" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- <script src="../js/jquery.min.js"></script> -->
 </head>
 
@@ -63,7 +64,7 @@
             <!--        购物车-->
             <div class="cart-bar">
                 <a href="Cart.html">
-                    <span class="fas fa-shopping-cart"></span> 购物车（0）
+                    <span class="fas fa-shopping-cart"></span> 
                 </a>
 
                 <!--            购物车的信息-->
@@ -882,7 +883,40 @@
              }
          }
         
-       
+                //显示右下角购物车详情
+                function cartContent() {
+            if (loc == null) {
+                return
+            }
+            let cartNum = document.querySelector('.fa-shopping-cart')
+            console.log(cartNum)
+            axios.get('http://localhost:3000/frite').then(({
+                data
+            }) => {
+                //    console.log(data)
+                if (data.length != 0) {
+                    let cartInfo = document.querySelector('.cart-info')
+                    let html = ''
+                    Array.from(data).forEach(ele => {
+                        html += ` <li><img src="${ele.src}" alt="">${ele.name}数量 ${ele.num}       <span onclick="fn(this,${data[0].id})">删除</span>
+                     </li> `
+                    })
+                    cartInfo.innerHTML=html
+                    cartNum.innerHTML='购物车('+data.length+')'
+                }
+
+            })
+        }
+        cartContent()
+           //购物车详情里的删除键效果
+           function fn(t,id){
+            
+            axios.delete(`http://localhost:3000/frite/${id}`).then(({data})=>{
+                console.log(data)
+                
+            })
+            t.parentNode.remove()
+        }
         // if(out.innerHTML='注'){
         //     location.href='register.html'
         // }else{

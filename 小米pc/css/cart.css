@@ -260,7 +260,14 @@
     border: none;
     cursor: default;
 }
-
+.cart-goods-list .col{
+    float: left;
+    line-height: 73px;
+}
+.cart-goods-list .col img{
+    width: 50px;
+    height: 70px;
+}
 .cart-goods-list .col-check .icon-checkbox-show:hover {
     color: #ff6700;
 }
@@ -274,7 +281,83 @@
     width: 380px;
     margin: 0;
 }
-
+.sc{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 23px;
+    top: 38px;
+}
+.co{
+    float: left;
+    line-height: 70px;
+    text-align: center;
+    height: 70px;
+}
+.item-box{
+    height: 55px;
+}
+.item-box .co-check{
+    width: 120px;
+}
+.item-box .co-img{
+    width: 120px;
+}
+.item-box .co-img img{
+    height: 100%;
+}
+.item-box .co-name{
+    width: 380px;
+    
+}
+.item-box .co-name div{
+    float: left;
+    width: 100px;
+}
+.item-box .co-price{
+    width: 158px;
+}
+.item-box .co-num{
+    width: 150px;
+    position: relative;
+}
+.item-box .co-total{
+    width: 201px;
+}
+.item-box .co-action{
+    width: 70px;
+}
+/* 加号 */
+.col-num{
+    position: relative;
+    line-height: 20px;
+}
+.add{
+    display:block;
+    background: #ccc;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left:86px;
+    top: 22px;
+    line-height: 20px;
+}
+.sub{
+    display:block;
+    background: #ccc;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    left: 44px;
+    top: 22px;
+}
+.num{
+    width: 12px;
+    height: 14px;
+    vertical-align:text-bottom;
+    text-align: center;
+}
 .cart-goods-list .col-name .name a,
 .cart-goods-list .col-name .desc a {
     color: #ff6700;
@@ -436,6 +519,12 @@
     display: table;
     border-collapse: collapse;
     border-spacing: 0;
+    margin-left: 111px;
+    line-height: 20px;
+    
+}
+.cart-goods-list .item-box{
+    position: relative;
 }
 
 .cart-goods-list .item-table .item-row {

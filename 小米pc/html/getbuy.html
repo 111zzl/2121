@@ -12,6 +12,8 @@
     <link rel="shortcut icon" href="//s01.mifile.cn/favicon.ico" type="image/x-icon" />
     <!--    引入重置样式表-->
     <link rel="stylesheet" href="../css/reset.css">
+     <!--    引入图标字体 -->
+     <link rel="stylesheet" href="../font/css/all.css">
     <!--    引入基础样式表-->
     <link rel="stylesheet" href="../css/base.css">
     <!--    引入当前页面的样式表-->
@@ -123,7 +125,7 @@
             <!--        购物车-->
             <div class="cart-bar">
                 <a href="Cart.html">
-                    <span class="fas fa-shopping-cart">购物车（0）</span> 
+                    <span class="fas fa-shopping-cart"></span> 
                 </a>
 
                 <!--            购物车的信息-->
@@ -643,7 +645,7 @@
                 alert('请选择颜色和内存')
                 return
             }
-            let src = 'file:///C:/Users/86157/Desktop/%E5%B0%8F%E7%B1%B3pc/images/1.png'
+            let src = '../images/1.png'
             console.log(name, price, colors, memorys)
             axios.get(` http://localhost:3000/frite?name=${name}&price=${price}&color=${colors}&memory=${memorys}`)
                 .then(({

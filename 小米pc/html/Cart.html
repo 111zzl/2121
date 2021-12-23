@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="../css/base1.css" />
     <link rel="stylesheet" href="../css/cart.css" />
     <script src="js/require.js" defer async="true" data-main="js/cart.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <style>
 
     </style>
@@ -46,7 +48,7 @@
                 <div class="cart-goods-list">
                     <!-- 列表头 -->
                     <div class="list-head clearfix">
-                        <div class="col col-check"><input class="iconfont icon-checkbox icon-checkbox-selected" id="J_selectAll">√</input>全选</div>
+                        <div class="col col-check"><input class="iconfont icon-checkbox icon-checkbox-selected" id="J_selectAll" type="checkbox"></input>全选</div>
                         <div class="col col-img">&nbsp;</div>
                         <div class="col col-name">商品名称</div>
                         <div class="col col-price">单价</div>
@@ -57,8 +59,8 @@
                     <!-- 列表 -->
                     <div class="list-body" id="J_cartListBody">
                         <div class="item-box">
-                            <div class="item-table J_cartGoods" data-info="{ commodity_id:'1192300048', gettype:'buy', itemid:'2192300031_0_buy', num:'1'} ">
-
+                            <div class="item-table J_cartGoods">
+                 
                             </div>
                         </div>
                     </div>
@@ -66,7 +68,7 @@
                 <div class="cart-bar clearfix" id="J_cartBar">
                     <div class="section-left">
                         <a href="#" class="back-shopping J_goShoping" data-stat-id="b16361b4c5491b6d" onclick="_msq.push(['trackEvent', '5df97b551662ffe7-b16361b4c5491b6d', '#', 'pcpid', '']);">继续购物</a>
-                        <span class="cart-total">共 <i id="J_cartTotalNum">4</i> 件商品，已选择 <i id="J_selTotalNum">4</i> 件</span>
+                        <span class="cart-total">共 0件商品，已选择0件</span>
                         <span class="cart-coudan hide" id="J_coudanTip">
                                             ，还需 <i id="J_postFreeBalance">0.00</i> 元即可免邮费  <a href="javascript:void(0);" id="J_showCoudan" data-stat-id="cfc8337d6cbfdef7" onclick="_msq.push(['trackEvent', '5df97b551662ffe7-cfc8337d6cbfdef7', 'javascript:void0', 'pcpid', '']);">立即凑单</a>
                                         </span>
@@ -75,7 +77,7 @@
                                         活动优惠：减 <i id="J_cartActivityMoney">0</i> 元
                                     </span>
                     <span class="total-price">
-                                        合计：<em id="J_cartTotalPrice">1896.9</em>元
+                                        合计：<em id="J_cartTotalPrice">0</em>元
                                     </span>
                     <a href="javascript:void(0);" class="btn btn-a btn btn-primary" id="J_goCheckout" data-stat-id="9bd56b7232f4ef1a" onclick="_msq.push(['trackEvent', '5df97b551662ffe7-9bd56b7232f4ef1a', 'javascript:void0', 'pcpid', '']);">去结算</a>
 
@@ -88,7 +90,7 @@
             </div>
             <div class="cart-recommend container" id="J_miRecommendBox">
                 <h2 class="xm-recommend-title">
-                    <span>买购物车中商品的人还买了</span>
+                    <span></span>
                 </h2>
                 <div class="xm-recommend">
                     <ul class="row clearfix">
@@ -168,10 +170,10 @@
         </div>
 
     </div>
-
+ 
    <script>
        //页面加载进来获取localstorage里的user判断是否执行下面的代码
-       function user(){
+      
         let loc=localStorage.getItem('user')
     //    console.log(loc)
         //获取元素
@@ -186,8 +188,213 @@
                 location.href=''
             }
         }
+        if(login.innerHTML==loc){
+            //当用户名存在的时候才调用下面的方法
+            cartGoods()
+            checkAll()
+            cartNum()
+        }
+      
+       //购物车数据渲染到页面当中
+        function cartGoods(){ 
+        // 发送ajax请求，获取json数据
+        let cartList=document.querySelector('#J_cartListBody')
+        // console.log(cartList)
+        // 定义一个变量用在追加到html
+        let html=''
+        axios.get('http://localhost:3000/frite').then(({data})=>{
+            // console.log(data)
+            //便利json数据取出数据
+            data.forEach(ele=>{
+                let price=parseInt(ele.price)
+                // console.log(ele.price)
+               html+=` <div class='item-box'>
+                        <div class='co co-check'><input class='sc' onclick="oneCheck(this)" type="checkbox"></div>
+                        <div class="co co-img"><img src='${ele.src}'></div>
+                        <div class="co co-name"><div>${ele.name}</div><div>${ele.color}</div><div>${ele.memory}</div></div>
+                        <div class="co co-price">${ele.price}</div>
+                        <div class="co co-num">  <a class='sub' onclick="sub(this)" href="#none">-</a><input class='num' type="text" value="${ele.num}"><a class='add' onclick="add(this)" href="#none">+</a></div>
+                        <div class="co co-total">${ele.num*price}</div>
+                        <div class="co co-action"><span>删除</span></div>
+                           </div>`
+                        
+            })
+            //把html追加到购物车列表中
+            cartList.innerHTML=html
+        })
        }
-       user()
+     
+           //       实现全选
+            function checkAll(){
+                //获取全选按钮
+                let allObj=document.querySelector('#J_selectAll')
+                // console.log(allObj)
+                    //获取元素
+                let select=document.querySelector('.cart-total')
+                //点击全选按钮让单选按钮选中
+                allObj.onclick=function(){
+                   
+                    // console.log('我能选中所有按钮')
+                    //获取单选按钮
+                    let oneObj=document.querySelectorAll('.sc')
+                    // 
+                      //点击全选按钮，让选中的件数等于单选框的长度
+                      //取消全选，让选中的件数等于0
+                    //判断全选框的状态为选中时，单选框也是选中的状态
+                    let subNum=0
+                    let money=document.querySelector('#J_cartTotalPrice')
+                    //  console.log(money)
+                    if(allObj.checked==true){
+                        select.innerHTML='共'+oneObj.length+'件商品 已选中'+oneObj.length+'件'
+                        oneObj.forEach(ele=>{
+                            ele.checked=true
+                            //单选框全部选中时，获取价格
+                         let price=ele.parentNode.parentNode.querySelector('.co-total')
+                          subNum+=price.innerHTML-0
+                        })
+                        money.innerHTML=subNum
+                    }else if(allObj.checked==false){
+                        select.innerHTML='共'+oneObj.length+'件商品 已选中'+0+'件'
+                        oneObj.forEach(ele=>{
+                            ele.checked=false
+                            money.innerHTML=0
+                        })
+                    }
+                }
+              
+             
+            }
+           
+          //   实现单选
+          //如果item-box下面的input全部为选中状态那全选
+          function oneCheck(tag){
+            //单选全部选中，全选为选中
+            //获取单选按钮
+            let oneObj=document.querySelectorAll('.sc')
+            // console.log(oneObj)
+            //全选按钮
+            let allObj=document.querySelector('#J_selectAll')
+            //判断商品数量来决定选中
+            let count=0
+            oneObj.forEach(v=>{
+                // console.log(v.checked)
+                v.checked&&count++
+            })
+            // console.log(count)
+            //判断单选有几个选中，html显示选中几件商品
+              //获取元素
+              let select=document.querySelector('.cart-total')
+              select.innerHTML='共'+oneObj.length+'件商品 已选中'+count+'件'
+            //商品数量等于单选框的长度
+          
+            if(count==oneObj.length){
+                //则全选选中
+                allObj.checked=true
+            }else{
+                allObj.checked=false
+            }
+            let status=oneObj.checked
+            total(status,oneObj)
+            
+          }
+        //左下角显示商品数量
+        function cartNum(){
+              //获取元素
+              let select=document.querySelector('.cart-total')
+            
+              //获取数据库的长度就等于有几件商品
+              //发送get请求
+              axios.get('http://localhost:3000/frite')
+              .then(({data})=>{
+                //   console.log(data.length)
+                //   console.log(select.innerHTML)
+                let selector=data.length
+                // console.log(selector)
+                select.innerHTML='共'+selector+'件商品 已选中0件'
+              })
+        }
+        
+        //实现加商品的功能
+        function add(target){
+            // console.log('我是加号')
+            // 点击加号以后。html上的效果是上一个兄弟元素的value加1，然后访问数据库靠id进行判断把num数量进行修改
+             //获取他的上一个兄弟元素
+            //  console.log(target)
+             let num=target.previousElementSibling
+             //数量
+             num.value=num.value-0+1
+             //获取小计和pirce然后重新赋值
+             let sub=target.parentNode.nextElementSibling
+             let price=parseInt(target.parentNode.previousElementSibling.innerHTML)
+            //  console.log(sub,price)
+             let color=target.parentNode.parentNode.querySelectorAll('.co-name>div')[1].innerHTML
+             let memory=target.parentNode.parentNode.querySelectorAll('.co-name>div')[2].innerHTML
+             console.log(color,memory)
+             sub.innerHTML=(num.value-0)*(price-0)
+            //  访问数据库判断颜色和版本，然后num加1,price也要加
+             axios.get(`http://localhost:3000/frite?color=${color}&memory=${memory}`)
+             .then(({data})=>{
+                 console.log(data[0].id)
+                 axios.put(`http://localhost:3000/frite/${data[0].id}`,{
+                       color:color,
+                       memory:memory,
+                       name:data[0].name,
+                       src:data[0].src,
+                       num:data[0].num+1,
+                       price:data[0].price
+                 })
+             })
+        }
+        //实现减的功能/和加是一样的逻辑稍作修改即可
+        function sub(tag){
+            let num=tag.nextElementSibling
+            num.value=num.value-0-1
+            let sub=tag.parentNode.nextElementSibling
+            let price=parseInt(tag.parentNode.previousElementSibling.innerHTML)
+            sub.innerHTML=(num.value-0)*(price-0)
+            // 实现数据库的减法
+            let color=tag.parentNode.parentNode.querySelectorAll('.co-name>div')[1].innerHTML
+            let memory=tag.parentNode.parentNode.querySelectorAll('.co-name>div')[2].innerHTML
+             axios.get(`http://localhost:3000/frite?color=${color}&memory=${memory}`)
+             .then(({data})=>{
+                 console.log(data[0].id)
+                 axios.put(`http://localhost:3000/frite/${data[0].id}`,{
+                       color:color,
+                       memory:memory,
+                       name:data[0].name,
+                       src:data[0].src,
+                       num:data[0].num-1,
+                       price:data[0].price
+                 })
+             })
+        }
+        //实现合计计算功能
+        function total(sta=true,target){
+          //获取计算价格的元素
+          let money=document.querySelector('#J_cartTotalPrice')
+        //   console.log(money.innerHTML,target)
+          //思考 计算价格是计算单选框为选中，或者全选框选中时，还有增加和删减开始计算，
+        //   所以此方法应该放在单选和全选功能和加减删除中调用该方法
+        //   定义小计为0
+          let subNum=0
+        //   let sub=target.parentNode.parentNode.querySelector('.co-total').innerHTML
+        //   console.log(target)
+           sta&&target.forEach(ele=>{
+               console.log(ele)
+               if(ele.checked==true){
+                //    console.log('我成功了')
+                //找到小计
+                 let sub=ele.parentNode.parentNode.querySelector('.co-total').innerHTML
+                //  console.log(sub)
+                //获取小计数量
+                subNum+=sub-0
+                // console.log(subNum)
+               }
+               //追加到页面中
+               money.innerHTML=subNum
+           })
+        }
+     
    </script>
 </body>
 

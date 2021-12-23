@@ -198,7 +198,7 @@
 /*鼠标移入，显示购物车详情*/
 
 .cart-bar:hover .cart-info {
-    height: 100px;
+    height: 250px;
 }
 
 
@@ -380,7 +380,10 @@
     border-color: rgba(255, 255, 255, .3);
     background-color: rgba(0, 0, 0, .4);
 }
-
+.cart-info img{
+    width: 50px;
+    height: 60px;
+    }
 .carousel-btn a:hover {
     border-color: rgba(0, 0, 0, .4);
     background-color: rgba(255, 255, 255, .4);
